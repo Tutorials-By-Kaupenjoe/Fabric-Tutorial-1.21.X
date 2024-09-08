@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_pink_garnet_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tutorialmod:raw_pink_garnet_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tutorialmod:raw_pink_garnet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_pink_garnet_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tutorialmod:raw_pink_garnet"
+    ]
+  }
+}
