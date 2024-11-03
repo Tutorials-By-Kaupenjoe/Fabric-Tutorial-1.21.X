@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HammerItem extends MiningToolItem {
-    public HammerItem(ToolMaterial material, Settings settings) {
-        super(material, BlockTags.PICKAXE_MINEABLE, settings);
+    public HammerItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(material, BlockTags.PICKAXE_MINEABLE, attackDamage, attackSpeed, settings);
     }
 
     public static List<BlockPos> getBlocksToBeDestroyed(int range, BlockPos initalBlockPos, ServerPlayerEntity player) {

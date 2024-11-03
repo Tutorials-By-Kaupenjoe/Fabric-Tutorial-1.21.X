@@ -1,0 +1,19 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "tutorialmod:pink_garnet"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "tutorialmod:pink_garnet"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "tutorialmod:pink_garnet"
+      }
+    ]
+  }
+}
