@@ -9,6 +9,8 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.component.ModDataComponentTypes;
 import net.kaupenjoe.tutorialmod.effect.ModEffects;
+import net.kaupenjoe.tutorialmod.enchantment.ModEnchantmentEffects;
+import net.kaupenjoe.tutorialmod.enchantment.ModEnchantments;
 import net.kaupenjoe.tutorialmod.item.ModItemGroups;
 import net.kaupenjoe.tutorialmod.item.ModItems;
 import net.kaupenjoe.tutorialmod.potion.ModPotions;
@@ -41,6 +43,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();
+
+		ModEnchantmentEffects.registerEnchantmentEffects();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
 

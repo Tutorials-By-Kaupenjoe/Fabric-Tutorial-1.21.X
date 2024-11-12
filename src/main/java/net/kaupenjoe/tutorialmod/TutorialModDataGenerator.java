@@ -3,6 +3,7 @@ package net.kaupenjoe.tutorialmod;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.kaupenjoe.tutorialmod.datagen.*;
+import net.kaupenjoe.tutorialmod.enchantment.ModEnchantments;
 import net.kaupenjoe.tutorialmod.trim.ModTrimMaterials;
 import net.kaupenjoe.tutorialmod.trim.ModTrimPatterns;
 import net.minecraft.registry.RegistryBuilder;
@@ -25,5 +26,6 @@ public class TutorialModDataGenerator implements DataGeneratorEntrypoint {
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
 	}
 }
