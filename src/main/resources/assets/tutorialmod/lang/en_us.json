@@ -66,6 +66,14 @@
   "block.tutorialmod.cauliflower_crop": "Cauliflower Crop",
   "block.tutorialmod.honey_berry_bush": "Honey Berry Bush",
 
+  "block.tutorialmod.driftwood_log": "Driftwood Log",
+  "block.tutorialmod.driftwood_wood": "Driftwood Wood",
+  "block.tutorialmod.stripped_driftwood_log": "Stripped Driftwood Log",
+  "block.tutorialmod.stripped_driftwood_wood": "Stripped Driftwood Wood",
+  "block.tutorialmod.driftwood_planks": "Driftwood Planks",
+  "block.tutorialmod.driftwood_leaves": "Driftwood Leaves",
+  "block.tutorialmod.driftwood_sapling": "Driftwood Sapling",
+
 
   "effect.tutorialmod.slimey": "Slimey",
 

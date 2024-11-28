@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "tutorialmod:block/driftwood_sapling"
+  }
+}

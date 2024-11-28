@@ -78,6 +78,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PINK_GARNET_END_ORE, multipleOreDrops(ModBlocks.PINK_GARNET_END_ORE, ModItems.RAW_PINK_GARNET, 4, 9));
         addDrop(ModBlocks.PINK_GARNET_NETHER_ORE, multipleOreDrops(ModBlocks.PINK_GARNET_NETHER_ORE, ModItems.RAW_PINK_GARNET, 3, 8));
 
+        addDrop(ModBlocks.DRIFTWOOD_LOG);
+        addDrop(ModBlocks.DRIFTWOOD_WOOD);
+        addDrop(ModBlocks.STRIPPED_DRIFTWOOD_LOG);
+        addDrop(ModBlocks.STRIPPED_DRIFTWOOD_WOOD);
+        addDrop(ModBlocks.DRIFTWOOD_PLANKS);
+        addDrop(ModBlocks.DRIFTWOOD_SAPLING);
+
+        addDrop(ModBlocks.DRIFTWOOD_LEAVES, leavesDrops(ModBlocks.DRIFTWOOD_LEAVES, ModBlocks.DRIFTWOOD_SAPLING, 0.0625f));
     }
 
     public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
