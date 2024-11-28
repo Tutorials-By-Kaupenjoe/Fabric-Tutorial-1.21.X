@@ -2,10 +2,7 @@ package net.kaupenjoe.tutorialmod.block;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.kaupenjoe.tutorialmod.TutorialMod;
-import net.kaupenjoe.tutorialmod.block.custom.CauliflowerCropBlock;
-import net.kaupenjoe.tutorialmod.block.custom.HoneyBerryBushBlock;
-import net.kaupenjoe.tutorialmod.block.custom.MagicBlock;
-import net.kaupenjoe.tutorialmod.block.custom.PinkGarnetLampBlock;
+import net.kaupenjoe.tutorialmod.block.custom.*;
 import net.kaupenjoe.tutorialmod.sound.ModSounds;
 import net.kaupenjoe.tutorialmod.world.tree.ModSaplingGenerators;
 import net.minecraft.block.*;
@@ -94,7 +91,7 @@ public class ModBlocks {
             new LeavesBlock(AbstractBlock.Settings.copy(Blocks.OAK_LEAVES)));
 
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
-            new SaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING)));
+            new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
 
 
 
