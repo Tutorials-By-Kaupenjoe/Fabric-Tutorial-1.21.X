@@ -45,7 +45,6 @@ public class ModConfiguredFeatures {
         register(context, NETHER_PINK_GARNET_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherPinkGarnetOres, 9));
         register(context, END_PINK_GARNET_ORE_KEY, Feature.ORE, new OreFeatureConfig(endPinkGarnetOres, 9));
 
-
         register(context, DRIFTWOOD_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LOG),
                 new StraightTrunkPlacer(5, 6, 3),
