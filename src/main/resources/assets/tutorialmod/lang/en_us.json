@@ -34,6 +34,7 @@
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
   "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
 
+  "item.tutorialmod.mantis_spawn_egg": "Mantis Spawn Egg",
 
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
@@ -98,5 +99,7 @@
   "tooltip.tutorialmod.cauliflower.tooltip": "This is delicious!",
 
   "trim_material.tutorialmod.pink_garnet": "Pink Garnet Material",
-  "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Pattern"
+  "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Pattern",
+
+  "entity.tutorialmod.mantis": "Mantis"
 }
