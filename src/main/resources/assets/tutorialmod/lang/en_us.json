@@ -36,6 +36,8 @@
 
   "item.tutorialmod.mantis_spawn_egg": "Mantis Spawn Egg",
 
+  "item.tutorialmod.tomahawk": "Tomahawk",
+
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
   "block.tutorialmod.raw_pink_garnet_block": "Block of Raw Pink Garnet",
@@ -101,5 +103,6 @@
   "trim_material.tutorialmod.pink_garnet": "Pink Garnet Material",
   "trim_pattern.tutorialmod.kaupen": "Kaupen Armor Pattern",
 
-  "entity.tutorialmod.mantis": "Mantis"
+  "entity.tutorialmod.mantis": "Mantis",
+  "entity.tutorialmod.tomahawk": "Tomahawk"
 }

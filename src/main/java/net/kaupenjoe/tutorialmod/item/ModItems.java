@@ -7,6 +7,7 @@ import net.kaupenjoe.tutorialmod.entity.ModEntities;
 import net.kaupenjoe.tutorialmod.item.custom.ChiselItem;
 import net.kaupenjoe.tutorialmod.item.custom.HammerItem;
 import net.kaupenjoe.tutorialmod.item.custom.ModArmorItem;
+import net.kaupenjoe.tutorialmod.item.custom.TomahawkItem;
 import net.kaupenjoe.tutorialmod.sound.ModSounds;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -85,6 +86,9 @@ public class ModItems {
 
     public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
             new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
+
+    public static final Item TOMAHAWK = registerItem("tomahawk",
+            new TomahawkItem(new Item.Settings().maxCount(16)));
 
 
     private static Item registerItem(String name, Item item) {
