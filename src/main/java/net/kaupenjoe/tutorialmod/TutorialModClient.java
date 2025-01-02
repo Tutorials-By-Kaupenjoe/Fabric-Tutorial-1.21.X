@@ -6,10 +6,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.entity.ModEntities;
-import net.kaupenjoe.tutorialmod.entity.client.MantisModel;
-import net.kaupenjoe.tutorialmod.entity.client.MantisRenderer;
-import net.kaupenjoe.tutorialmod.entity.client.TomahawkProjectileModel;
-import net.kaupenjoe.tutorialmod.entity.client.TomahawkProjectileRenderer;
+import net.kaupenjoe.tutorialmod.entity.client.*;
 import net.kaupenjoe.tutorialmod.util.ModModelPredicates;
 import net.minecraft.client.render.RenderLayer;
 
@@ -31,5 +28,7 @@ public class TutorialModClient implements ClientModInitializer {
 
         EntityModelLayerRegistry.registerModelLayer(TomahawkProjectileModel.TOMAHAWK, TomahawkProjectileModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.TOMAHAWK, TomahawkProjectileRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.CHAIR, ChairRenderer::new);
     }
 }
