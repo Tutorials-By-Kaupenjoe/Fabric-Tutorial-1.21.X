@@ -2,6 +2,7 @@ package net.kaupenjoe.tutorialmod.item.custom;
 
 import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.component.ModDataComponentTypes;
+import net.kaupenjoe.tutorialmod.particle.ModParticles;
 import net.kaupenjoe.tutorialmod.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -65,6 +66,10 @@ public class ChiselItem extends Item {
                 ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME,
                         context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.5,
                         context.getBlockPos().getZ() + 0.5, 10, 0, 0, 0, 3);
+
+                ((ServerWorld) world).spawnParticles(ModParticles.PINK_GARNET_PARTICLE,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0,
+                        context.getBlockPos().getZ() + 0.5, 8, 0, 0, 0, 2);
 
 
 

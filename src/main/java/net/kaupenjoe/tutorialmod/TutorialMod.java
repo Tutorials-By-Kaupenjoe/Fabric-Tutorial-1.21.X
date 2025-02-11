@@ -16,6 +16,7 @@ import net.kaupenjoe.tutorialmod.entity.ModEntities;
 import net.kaupenjoe.tutorialmod.entity.custom.MantisEntity;
 import net.kaupenjoe.tutorialmod.item.ModItemGroups;
 import net.kaupenjoe.tutorialmod.item.ModItems;
+import net.kaupenjoe.tutorialmod.particle.ModParticles;
 import net.kaupenjoe.tutorialmod.potion.ModPotions;
 import net.kaupenjoe.tutorialmod.sound.ModSounds;
 import net.kaupenjoe.tutorialmod.util.HammerUsageEvent;
@@ -58,6 +59,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModEntities.registerModEntities();
 		ModVillagers.registerVillagers();
+
+		ModParticles.registerParticles();
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
 
