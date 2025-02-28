@@ -79,6 +79,8 @@ public class PedestalBlock extends BlockWithEntity implements BlockEntityProvide
 
                 pedestalBlockEntity.markDirty();
                 world.updateListeners(pos, state, state, 0);
+            } else if(player.isSneaking() && !world.isClient()) {
+                player.openHandledScreen(pedestalBlockEntity);
             }
         }
 
