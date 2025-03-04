@@ -13,6 +13,7 @@ import net.kaupenjoe.tutorialmod.entity.client.*;
 import net.kaupenjoe.tutorialmod.particle.ModParticles;
 import net.kaupenjoe.tutorialmod.particle.PinkGarnetParticle;
 import net.kaupenjoe.tutorialmod.screen.ModScreenHandlers;
+import net.kaupenjoe.tutorialmod.screen.custom.GrowthChamberScreen;
 import net.kaupenjoe.tutorialmod.screen.custom.PedestalScreen;
 import net.kaupenjoe.tutorialmod.util.ModModelPredicates;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -46,5 +47,7 @@ public class TutorialModClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
+
+        HandledScreens.register(ModScreenHandlers.GROWTH_CHAMBER_SCREEN_HANDLER, GrowthChamberScreen::new);
     }
 }
