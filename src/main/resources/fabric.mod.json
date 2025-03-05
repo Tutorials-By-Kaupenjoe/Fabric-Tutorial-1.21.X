@@ -23,6 +23,9 @@
 		],
 		"client": [
 			"net.kaupenjoe.tutorialmod.TutorialModClient"
+		],
+		"rei_client": [
+			"net.kaupenjoe.tutorialmod.compat.TutorialModREIClient"
 		]
 	},
 	"mixins": [
