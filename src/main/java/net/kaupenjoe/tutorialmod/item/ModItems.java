@@ -84,7 +84,7 @@ public class ModItems {
             setting -> new BlockItem(ModBlocks.HONEY_BERRY_BUSH, setting.food(ModFoodComponents.HONEY_BERRIES)));
 
     public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
-            setting -> new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, setting));
+            setting -> new SpawnEggItem(ModEntities.MANTIS, setting));
 
     public static final Item TOMAHAWK = registerItem("tomahawk",
             setting -> new TomahawkItem(setting.maxCount(16)));

@@ -15,12 +15,9 @@ import net.kaupenjoe.tutorialmod.particle.PinkGarnetParticle;
 import net.kaupenjoe.tutorialmod.screen.ModScreenHandlers;
 import net.kaupenjoe.tutorialmod.screen.custom.GrowthChamberScreen;
 import net.kaupenjoe.tutorialmod.screen.custom.PedestalScreen;
-import net.kaupenjoe.tutorialmod.util.ModModelPredicates;
-import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
-import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 
 public class TutorialModClient implements ClientModInitializer {
     @Override
@@ -32,8 +29,6 @@ public class TutorialModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HONEY_BERRY_BUSH, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DRIFTWOOD_SAPLING, RenderLayer.getCutout());
-
-        ModModelPredicates.registerModelPredicates();
 
         EntityModelLayerRegistry.registerModelLayer(MantisModel.MANTIS, MantisModel::getTexturedModelData);
         EntityRendererRegistry.register(ModEntities.MANTIS, MantisRenderer::new);

@@ -1,15 +1,20 @@
 package net.kaupenjoe.tutorialmod.datagen;
 
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.kaupenjoe.tutorialmod.TutorialMod;
 import net.kaupenjoe.tutorialmod.block.ModBlocks;
 import net.kaupenjoe.tutorialmod.block.custom.CauliflowerCropBlock;
 import net.kaupenjoe.tutorialmod.block.custom.HoneyBerryBushBlock;
 import net.kaupenjoe.tutorialmod.block.custom.PinkGarnetLampBlock;
+import net.kaupenjoe.tutorialmod.component.ModDataComponentTypes;
 import net.kaupenjoe.tutorialmod.item.ModArmorMaterials;
 import net.kaupenjoe.tutorialmod.item.ModItems;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
+import net.minecraft.client.item.ItemAsset;
+import net.minecraft.client.render.item.model.ConditionItemModel;
+import net.minecraft.client.render.item.model.ItemModel;
+import net.minecraft.client.render.item.property.bool.HasComponentProperty;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
@@ -52,7 +57,7 @@ public class ModModelProvider extends FabricModelProvider {
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED, lampOnIdentifier, lampOffIdentifier)));
 
         blockStateModelGenerator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
-        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
                 HoneyBerryBushBlock.AGE, 0, 1, 2, 3);
 
         blockStateModelGenerator.registerLog(ModBlocks.DRIFTWOOD_LOG).log(ModBlocks.DRIFTWOOD_LOG).wood(ModBlocks.DRIFTWOOD_WOOD);
@@ -60,7 +65,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DRIFTWOOD_PLANKS);
         blockStateModelGenerator.registerSingleton(ModBlocks.DRIFTWOOD_LEAVES, TexturedModel.LEAVES);
-        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DRIFTWOOD_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DRIFTWOOD_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHAIR);
 
@@ -84,14 +89,13 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
-                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_CHESTPLATE), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
-                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_LEGGINGS), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
-                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_BOOTS), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
-                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
+        itemModelGenerator.upload(ModItems.KAUPEN_BOW, Models.BOW);
+        itemModelGenerator.registerBow(ModItems.KAUPEN_BOW);
+
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET), ModArmorMaterials.PINK_GARNET_KEY, "helmet", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_CHESTPLATE), ModArmorMaterials.PINK_GARNET_KEY, "chestplate", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_LEGGINGS), ModArmorMaterials.PINK_GARNET_KEY, "leggings", false);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_BOOTS), ModArmorMaterials.PINK_GARNET_KEY, "boots", false);
 
         itemModelGenerator.register(ModItems.PINK_GARNET_HORSE_ARMOR, Models.GENERATED);
         itemModelGenerator.register(ModItems.KAUPEN_SMITHING_TEMPLATE, Models.GENERATED);
@@ -102,5 +106,12 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.MANTIS_SPAWN_EGG,
                 new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty()));
+
+        ItemModel.Unbaked unbakedChisel = ItemModels.basic(itemModelGenerator.upload(ModItems.CHISEL, Models.GENERATED));
+        ItemModel.Unbaked unbakedUsedChisel = ItemModels.basic(itemModelGenerator.registerSubModel(ModItems.CHISEL, "_used", Models.GENERATED));
+        itemModelGenerator.output.accept(ModItems.CHISEL,
+                new ItemAsset(new ConditionItemModel.Unbaked(new HasComponentProperty(ModDataComponentTypes.COORDINATES, false),
+                        unbakedUsedChisel, unbakedChisel),
+                        new ItemAsset.Properties(false)).model());
     }
 }

@@ -48,9 +48,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.PINK_GARNET);
 
-        getOrCreateTagBuilder(ItemTags.TRIM_TEMPLATES)
-                .add(ModItems.KAUPEN_SMITHING_TEMPLATE);
-
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.DRIFTWOOD_LOG.asItem())
                 .add(ModBlocks.DRIFTWOOD_WOOD.asItem())
