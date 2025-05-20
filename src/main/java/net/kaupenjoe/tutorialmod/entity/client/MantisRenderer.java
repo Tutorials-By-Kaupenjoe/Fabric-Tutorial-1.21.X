@@ -13,7 +13,7 @@ import net.minecraft.util.Util;
 
 import java.util.Map;
 
-public class MantisRenderer extends MobEntityRenderer<MantisEntity, MantisModel<MantisEntity>> {
+public class MantisRenderer extends MobEntityRenderer<MantisEntity, MantisRenderState, MantisModel> {
     private static final Map<MantisVariant, Identifier> LOCATION_BY_VARIANT =
             Util.make(Maps.newEnumMap(MantisVariant.class), map -> {
                 map.put(MantisVariant.DEFAULT,
@@ -23,23 +23,35 @@ public class MantisRenderer extends MobEntityRenderer<MantisEntity, MantisModel<
             });
 
     public MantisRenderer(EntityRendererFactory.Context context) {
-        super(context, new MantisModel<>(context.getPart(MantisModel.MANTIS)), 0.75f);
+        super(context, new MantisModel(context.getPart(MantisModel.MANTIS)), 0.75f);
     }
 
     @Override
-    public Identifier getTexture(MantisEntity entity) {
-        return LOCATION_BY_VARIANT.get(entity.getVariant());
+    public Identifier getTexture(MantisRenderState state) {
+        return LOCATION_BY_VARIANT.get(state.variant);
     }
 
     @Override
-    public void render(MantisEntity livingEntity, float f, float g, MatrixStack matrixStack,
+    public void render(MantisRenderState state, MatrixStack matrixStack,
                        VertexConsumerProvider vertexConsumerProvider, int i) {
-        if(livingEntity.isBaby()) {
+        if(state.baby) {
             matrixStack.scale(0.5f, 0.5f, 0.5f);
         } else {
             matrixStack.scale(1f, 1f, 1f);
         }
 
-        super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);
+        super.render(state, matrixStack, vertexConsumerProvider, i);
+    }
+
+    @Override
+    public MantisRenderState createRenderState() {
+        return new MantisRenderState();
+    }
+
+    @Override
+    public void updateRenderState(MantisEntity livingEntity, MantisRenderState livingEntityRenderState, float f) {
+        super.updateRenderState(livingEntity, livingEntityRenderState, f);
+        livingEntityRenderState.idleAnimationState.copyFrom(livingEntity.idleAnimationState);
+        livingEntityRenderState.variant = livingEntity.getVariant();
     }
 }

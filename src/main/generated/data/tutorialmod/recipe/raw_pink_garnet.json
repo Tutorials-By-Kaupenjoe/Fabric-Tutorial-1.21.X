@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "tutorialmod:raw_pink_garnet_block"
-    }
+    "tutorialmod:raw_pink_garnet_block"
   ],
   "result": {
     "count": 9,

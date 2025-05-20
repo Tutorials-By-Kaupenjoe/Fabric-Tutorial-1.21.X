@@ -72,13 +72,15 @@ public class TutorialMod implements ModInitializer {
 
 		ModRecipes.registerRecipes();
 
-		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
+		FuelRegistryEvents.BUILD.register((builder, context) -> {
+			builder.add(ModItems.STARLIGHT_ASHES, 600);
+		});
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
 			if(entity instanceof SheepEntity sheepEntity) {
 				if(player.getMainHandStack().getItem() == Items.END_ROD) {
-					player.sendMessage(Text.literal("The Player just hit a sheep with an END ROD! YOU SICK FRICK!"));
+					player.sendMessage(Text.literal("The Player just hit a sheep with an END ROD! YOU SICK FRICK!"), false);
 					player.getMainHandStack().decrement(1);
 					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 6));
 				}

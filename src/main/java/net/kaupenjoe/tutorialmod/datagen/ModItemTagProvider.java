@@ -25,6 +25,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.STICK)
                 .add(Items.APPLE);
 
+        getOrCreateTagBuilder(ModTags.Items.PINK_GARNET_REPAIR)
+                .add(ModItems.PINK_GARNET);
+
         getOrCreateTagBuilder(ItemTags.SWORDS)
                 .add(ModItems.PINK_GARNET_SWORD);
         getOrCreateTagBuilder(ItemTags.PICKAXES)

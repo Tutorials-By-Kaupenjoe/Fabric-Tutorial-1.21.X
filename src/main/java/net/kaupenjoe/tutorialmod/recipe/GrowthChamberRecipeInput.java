@@ -10,7 +10,7 @@ public record GrowthChamberRecipeInput(ItemStack input) implements RecipeInput {
     }
 
     @Override
-    public int getSize() {
+    public int size() {
         return 1;
     }
 }

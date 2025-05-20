@@ -21,8 +21,8 @@ public class TutorialModREIClient implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
-        registry.registerRecipeFiller(GrowthChamberRecipe.class, ModRecipes.GROWTH_CHAMBER_TYPE,
-                GrowthChamberDisplay::new);
+        // registry.registerRecipeFiller(GrowthChamberRecipe.class, ModRecipes.GROWTH_CHAMBER_TYPE,
+        //         GrowthChamberDisplay::new);
     }
 
     @Override
