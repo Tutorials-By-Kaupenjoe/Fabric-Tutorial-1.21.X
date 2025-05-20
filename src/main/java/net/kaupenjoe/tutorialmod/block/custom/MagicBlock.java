@@ -1,6 +1,5 @@
 package net.kaupenjoe.tutorialmod.block.custom;
 
-import net.kaupenjoe.tutorialmod.item.ModItems;
 import net.kaupenjoe.tutorialmod.particle.ModParticles;
 import net.kaupenjoe.tutorialmod.util.ModTags;
 import net.minecraft.block.Block;
@@ -30,7 +29,7 @@ public class MagicBlock extends Block {
     @Override
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player,
                                  BlockHitResult hit) {
-        world.addParticle(ModParticles.PINK_GARNET_PARTICLE, pos.getX() + 0.5, pos.getY() + 1,
+        world.addParticleClient(ModParticles.PINK_GARNET_PARTICLE, pos.getX() + 0.5, pos.getY() + 1,
                 pos.getZ() + 0.5, 0, 1, 0);
 
         world.playSound(player, pos, SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME, SoundCategory.BLOCKS, 1f, 1f);
@@ -50,11 +49,5 @@ public class MagicBlock extends Block {
 
     private boolean isValidItem(ItemStack stack) {
         return stack.isIn(ModTags.Items.TRANSFORMABLE_ITEMS);
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        tooltip.add(Text.translatable("tooltip.tutorialmod.magic_block.tooltip"));
-        super.appendTooltip(stack, context, tooltip, options);
     }
 }

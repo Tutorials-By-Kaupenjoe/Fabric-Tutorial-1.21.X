@@ -8,7 +8,7 @@ import net.minecraft.client.render.entity.animation.Transformation;
 public class MantisAnimations {
     public static final Animation ANIM_MANTIS_IDLE = Animation.Builder.create(2f).looping()
             .addBoneAnimation("mantis",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.5f, AnimationHelper.createTranslationalVector(1.5f, -0.4f, 0f),
@@ -204,7 +204,7 @@ public class MantisAnimations {
 
     public static final Animation ANIM_MANTIS_WALK = Animation.Builder.create(2f).looping()
             .addBoneAnimation("mantis",
-                    new Transformation(Transformation.Targets.TRANSLATE,
+                    new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR),
                             new Keyframe(0.75f, AnimationHelper.createTranslationalVector(-2f, -1.7f, 2f),

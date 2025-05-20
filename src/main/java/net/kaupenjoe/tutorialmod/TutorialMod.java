@@ -34,6 +34,7 @@ import net.minecraft.item.Items;
 import net.minecraft.potion.Potions;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Identifier;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
@@ -128,7 +129,7 @@ public class TutorialMod implements ModInitializer {
 					new ItemStack(ModItems.HONEY_BERRIES, 5), 4, 7, 0.04f));
 		});
 
-		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAUPENGER, 1, factories -> {
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAPUENGER_KEY, 1, factories -> {
 			factories.add((entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 10),
 					new ItemStack(ModItems.CHISEL, 1), 4, 7, 0.04f));
@@ -138,7 +139,7 @@ public class TutorialMod implements ModInitializer {
 					new ItemStack(ModItems.RAW_PINK_GARNET, 1), 4, 7, 0.04f));
 		});
 
-		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAUPENGER, 2, factories -> {
+		TradeOfferHelper.registerVillagerOffers(ModVillagers.KAPUENGER_KEY, 2, factories -> {
 			factories.add((entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 10),
 					new ItemStack(ModItems.CHISEL, 1), 4, 7, 0.04f));
@@ -148,12 +149,12 @@ public class TutorialMod implements ModInitializer {
 					new ItemStack(ModItems.TOMAHAWK, 1), 3, 12, 0.09f));
 		});
 
-		TradeOfferHelper.registerWanderingTraderOffers(1, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+		TradeOfferHelper.registerWanderingTraderOffers(factories -> {
+			factories.addAll(Identifier.of(TutorialMod.MOD_ID, "emerald_for_chisel"), (entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 10),
 					new ItemStack(ModItems.CHISEL, 1), 4, 7, 0.04f));
 
-			factories.add((entity, random) -> new TradeOffer(
+			factories.addAll(Identifier.of(TutorialMod.MOD_ID, "garnet_tomahawk"), (entity, random) -> new TradeOffer(
 					new TradedItem(ModItems.PINK_GARNET, 16),
 					new ItemStack(ModItems.TOMAHAWK, 1), 3, 12, 0.09f));
 		});

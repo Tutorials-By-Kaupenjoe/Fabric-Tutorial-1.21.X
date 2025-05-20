@@ -1,7 +1,7 @@
-// 1.21.4	-999999999-01-01T00:00:00	Tutorial Mod/
+// 1.21.5	-999999999-01-01T00:00:00	Tutorial Mod/
 e336321ea1fc9ae816052f453ffa3778fbb65e51 data/tutorialmod/enchantment/lightning_striker.json
-f4610cec5cb5f39b00094282685d64777b1c43ca data/tutorialmod/trim_material/pink_garnet.json
-a248f3d2ed7262ab9e3ba1194d67ffd6b2e0d1cb data/tutorialmod/trim_pattern/kaupen.json
+9989994335daca06ba2965e205179ef0b74ffe89 data/tutorialmod/trim_material/pink_garnet.json
+c0c0c2e32910380d8ceda8030e818dc6b0ba317e data/tutorialmod/trim_pattern/kaupen.json
 454d4a2960bb565a3e43bbdcebbd00f18ebd8b4a data/tutorialmod/worldgen/configured_feature/driftwood.json
 016d6724b3aa7a119515afc144ef61849e6ec736 data/tutorialmod/worldgen/configured_feature/end_pink_garnet_ore.json
 9db0b18622971eefc5f66b450a4dd3a925f84c94 data/tutorialmod/worldgen/configured_feature/honey_berry_bush.json

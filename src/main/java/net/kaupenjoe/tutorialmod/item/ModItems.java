@@ -9,6 +9,7 @@ import net.kaupenjoe.tutorialmod.item.custom.HammerItem;
 import net.kaupenjoe.tutorialmod.item.custom.ModArmorItem;
 import net.kaupenjoe.tutorialmod.item.custom.TomahawkItem;
 import net.kaupenjoe.tutorialmod.sound.ModSounds;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.item.*;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
@@ -21,6 +22,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class ModItems {
@@ -31,18 +33,18 @@ public class ModItems {
     public static final Item CAULIFLOWER = registerItem("cauliflower", setting -> new Item(setting
             .food(ModFoodComponents.CAULIFLOWER, ModFoodComponents.CAULIFLOWER_EFFECT)) {
         @Override
-        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-            tooltip.add(Text.translatable("tooltip.tutorialmod.cauliflower.tooltip"));
-            super.appendTooltip(stack, context, tooltip, type);
+        public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+            textConsumer.accept(Text.translatable("tooltip.tutorialmod.cauliflower.tooltip"));
+            super.appendTooltip(stack, context, displayComponent, textConsumer, type);
         }
     });
 
     public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", Item::new);
 
     public static final Item PINK_GARNET_SWORD = registerItem("pink_garnet_sword",
-            setting -> new SwordItem(ModToolMaterials.PINK_GARNET, 3, -2.4f, setting));
+            setting -> new Item(setting.sword(ModToolMaterials.PINK_GARNET, 3, -2.4f)));
     public static final Item PINK_GARNET_PICKAXE = registerItem("pink_garnet_pickaxe",
-            setting -> new PickaxeItem(ModToolMaterials.PINK_GARNET, 1, -2.8f, setting));
+            setting -> new Item(setting.pickaxe(ModToolMaterials.PINK_GARNET, 1, -2.8f)));
     public static final Item PINK_GARNET_SHOVEL = registerItem("pink_garnet_shovel",
             setting -> new ShovelItem(ModToolMaterials.PINK_GARNET, 1.5f, -3.0f, setting));
     public static final Item PINK_GARNET_AXE = registerItem("pink_garnet_axe",
@@ -54,20 +56,16 @@ public class ModItems {
             setting -> new HammerItem(ModToolMaterials.PINK_GARNET, 7, -3.4f, setting));
 
     public static final Item PINK_GARNET_HELMET = registerItem("pink_garnet_helmet",
-            setting -> new ModArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.HELMET, setting
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(15))));
+            setting -> new ModArmorItem(setting.armor(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.HELMET)));
     public static final Item PINK_GARNET_CHESTPLATE = registerItem("pink_garnet_chestplate",
-            setting -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, setting
-                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(15))));
+            setting -> new Item(setting.armor(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)));
     public static final Item PINK_GARNET_LEGGINGS = registerItem("pink_garnet_leggings",
-            setting -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.LEGGINGS, setting
-                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(15))));
+            setting -> new Item(setting.armor(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.LEGGINGS)));
     public static final Item PINK_GARNET_BOOTS = registerItem("pink_garnet_boots",
-            setting -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.BOOTS, setting
-                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(15))));
+            setting -> new Item(setting.armor(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.BOOTS)));
 
     public static final Item PINK_GARNET_HORSE_ARMOR = registerItem("pink_garnet_horse_armor",
-            setting -> new AnimalArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, setting.maxCount(1)));
+            setting -> new Item(setting.horseArmor(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL).maxCount(1)));
     public static final Item KAUPEN_SMITHING_TEMPLATE = registerItem("kaupen_armor_trim_smithing_template",
             SmithingTemplateItem::of);
 

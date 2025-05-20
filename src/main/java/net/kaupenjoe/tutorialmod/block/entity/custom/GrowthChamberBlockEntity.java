@@ -26,6 +26,7 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -92,6 +93,12 @@ public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     @Override
+    public void onBlockReplaced(BlockPos pos, BlockState oldState) {
+        ItemScatterer.spawn(world, pos, (this));
+        super.onBlockReplaced(pos, oldState);
+    }
+
+    @Override
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
@@ -102,8 +109,8 @@ public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScr
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         Inventories.readNbt(nbt, inventory, registryLookup);
-        progress = nbt.getInt("growth_chamber.progress");
-        maxProgress = nbt.getInt("growth_chamber.max_progress");
+        progress = nbt.getInt("growth_chamber.progress").get();
+        maxProgress = nbt.getInt("growth_chamber.max_progress").get();
         super.readNbt(nbt, registryLookup);
     }
 

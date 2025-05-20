@@ -9,6 +9,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.LoreComponent;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -31,6 +32,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public class ChiselItem extends Item {
     private static final Map<Block, Block> CHISEL_MAP =
@@ -81,32 +83,30 @@ public class ChiselItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
         if(Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("tooltip.tutorialmod.chisel.shift_down"));
+            textConsumer.accept(Text.translatable("tooltip.tutorialmod.chisel.shift_down"));
         } else {
-            tooltip.add(Text.translatable("tooltip.tutorialmod.chisel"));
+            textConsumer.accept(Text.translatable("tooltip.tutorialmod.chisel"));
         }
 
         if(stack.get(ModDataComponentTypes.COORDINATES) != null) {
-            tooltip.add(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)));
+            textConsumer.accept(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)));
         }
 
-        super.appendTooltip(stack, context, tooltip, type);
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 
     int counter = 1;
     int chanceToAddLevitation = MathHelper.nextInt(Random.create(), 1, 5);
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(counter <= chanceToAddLevitation) {
             target.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 50, 0), attacker);
             counter = 1;
         } else {
             counter++;
         }
-
-        return super.postHit(stack, target, attacker);
     }
 }
