@@ -1,12 +1,9 @@
 package net.kaupenjoe.tutorialmod.entity.client;
 
-import net.minecraft.client.render.entity.animation.Animation;
-import net.minecraft.client.render.entity.animation.AnimationHelper;
-import net.minecraft.client.render.entity.animation.Keyframe;
-import net.minecraft.client.render.entity.animation.Transformation;
+import net.minecraft.client.render.entity.animation.*;
 
 public class MantisAnimations {
-    public static final Animation ANIM_MANTIS_IDLE = Animation.Builder.create(2f).looping()
+    public static final AnimationDefinition ANIM_MANTIS_IDLE = AnimationDefinition.Builder.create(2f).looping()
             .addBoneAnimation("mantis",
                     new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),
@@ -202,7 +199,7 @@ public class MantisAnimations {
                             new Keyframe(2f, AnimationHelper.createRotationalVector(0f, 0f, 0f),
                                     Transformation.Interpolations.LINEAR))).build();
 
-    public static final Animation ANIM_MANTIS_WALK = Animation.Builder.create(2f).looping()
+    public static final AnimationDefinition ANIM_MANTIS_WALK = AnimationDefinition.Builder.create(2f).looping()
             .addBoneAnimation("mantis",
                     new Transformation(Transformation.Targets.MOVE_ORIGIN,
                             new Keyframe(0f, AnimationHelper.createTranslationalVector(0f, 0f, 0f),

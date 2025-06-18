@@ -114,6 +114,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.output.accept(ModItems.CHISEL,
                 new ItemAsset(new ConditionItemModel.Unbaked(new HasComponentProperty(ModDataComponentTypes.COORDINATES, false),
                         unbakedUsedChisel, unbakedChisel),
-                        new ItemAsset.Properties(false)).model());
+                        new ItemAsset.Properties(false, false)).model());
     }
 }
